@@ -6,11 +6,15 @@ const {User,Blog, Comment} = require('../models');
 router.get('/', (req, res) => {
     Blog.findAll().then(blogs => {
         const hbsBlogs = blogs.map(blog=>blog.get({plain:true}))
-        res.render('home', {blogs:hbsBlogs})
+        const loggedIn = req.session.user?true:false;
+        res.render('home', {blogs:hbsBlogs, loggedIn, username:req.session.user?.username})
     })
 })
 
 router.get("/login",(req,res)=>{
+    if(req.session.user){
+        return res.redirect("/dashboard")
+    }
     res.render("login")
 })
 
@@ -19,10 +23,16 @@ router.get("/signup",(req,res)=>{
 })
 
 router.get("/dashboard",(req,res)=>{
-    if(!res.session.user) {
+    if(!req.session.user) {
         return res.redirect('/login')
     }
-    res.render("dashboard")
+    User.findByPk(req.session.user.id, {
+        include: [Blog, Comment]
+    }).then(userData => {
+        const hbsData = userData.get({plain:true})
+        hbsData.loggedIn = req.session.user?true:false
+        res.render("dashboard", hbsData)
+    })
 })
 
 module.exports = router;

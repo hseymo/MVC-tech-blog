@@ -8,13 +8,17 @@
 </head>
 <body>
     <header>
-        <nav> 
-        <ul>
+        {{#if loggedIn}}
             <a href="/">Home</a>
             <a href="/dashboard">Dashboard</a>
             <a href="/api/users/logout">Logout</a>
-        </ul>
-        </nav>
+        {{else}}
+            <a href="/">Home</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/login/">Login</a>
+
+        {{/if}}
+        
     </header>
     <main>
         {{{body}}}

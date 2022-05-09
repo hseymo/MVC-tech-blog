@@ -71,6 +71,7 @@ router.post("/login", (req, res) => {
           username:foundUser.username
         }
         return res.json(foundUser)
+        // redirect page??
       } else {
         return res.status(400).json({msg:"wrong login credentials"})
       }
