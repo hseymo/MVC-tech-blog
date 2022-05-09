@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const {User, Blog, Comment} = require("../models");
+const {User, Blog, Comment} = require("../../models");
 
 router.get("/", (req, res) => {
     Comment.findAll({include:[User, Blog]})
@@ -32,7 +32,7 @@ router.post("/", (req, res) => {
       body:req.body.body,
       user_id:req.session.user.id,
     //   TODO: add date here
-    //   date: req.session.date,
+    //   date: req.body.created_at,
     })
       .then(newBlog => {
         res.json(newBlog);

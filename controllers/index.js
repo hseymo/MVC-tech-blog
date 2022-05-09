@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 
-const userRoutes = require("./userRoutes.js");
+const userRoutes = require("./api/userRoutes.js");
 router.use("/api/users",userRoutes)
 
-const blogRoutes = require("./blogRoutes");
+const blogRoutes = require("./api/blogRoutes");
 router.use("/api/blogs",blogRoutes)
 
-const commentRoutes = require("./commentRoutes");
+const commentRoutes = require("./api/commentRoutes");
 router.use("/api/comments",commentRoutes)
 
 const frontEnd = require("./frontEndRoutes");
