@@ -25,7 +25,10 @@ User.init({
             return userdata
         }
     },
-    sequelize,
+    sequelize,   
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user',
 });
 
 module.exports=User

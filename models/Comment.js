@@ -7,9 +7,16 @@ Comment.init({
     body: {
         type:DataTypes.TEXT,
         allowNull:false
+    },
+    date: {
+        type:DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
     }
 },{
-    sequelize
+    sequelize,   
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'comment',
 });
 
 module.exports=Comment
