@@ -1,9 +1,24 @@
 <h1>Dashboard</h1>
+<section id="existingblogs">
 {{#each blogs}}
-<a href="/blogs/{{id}}">
-    <h3>{{title}}</h3>
-    <p>{{content}}</p>
-</a>
+  <section class="card">
+      <a href="/blogs/{{id}}" class="card-body">
+        <h3 class="card-title">{{title}}</h3> 
+        <h4>Posted by {{user.username}} on {{createdAt}}</h4>
+        <p class="card-text">{{content}}</p>
+    </a>
+  </section>
 {{/each}}
-
+</section>
+<section id="createNew" class="card">
+  <form id="newBlog">
+      <h3 class="card-title">Create New Post</h3>
+    <input type="text" id="title" placeholder="title">
+    <textarea id="content" cols="30" rows="10"></textarea>
+    <button>Create</button>
+</form>
+</section>
+<form id="newpost">
+    <button>+ New Post</button>
+</form>
 <script src="/js/dashboard.js"></script>
