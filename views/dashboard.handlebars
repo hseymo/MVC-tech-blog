@@ -1,7 +1,9 @@
 <h1>Dashboard</h1>
 {{#each blogs}}
+<a href="/blogs/{{id}}">
     <h3>{{title}}</h3>
     <p>{{content}}</p>
+</a>
 {{/each}}
 
 <script src="/js/dashboard.js"></script>

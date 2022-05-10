@@ -14,6 +14,7 @@ document.querySelector("#login").addEventListener("submit",e=>{
     }).then(res=>{
         if(res.ok){
             console.log("user is logged in")
+            location.href="/dashboard"
         } else {
             alert("please try again")
         }

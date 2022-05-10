@@ -112,12 +112,6 @@ DB_PW='' <br>
 
 ## Contributing 
 ---
-
-
-<br>
-
-## Tests
----
 This project was completed by myself, Haley Seymour, with the instruction of the University of Washington Web Development Bootcamp. If you would like to contribute, please do and let me know if you have any questions.
 
 <br>

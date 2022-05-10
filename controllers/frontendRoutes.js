@@ -4,7 +4,7 @@ const {User,Blog, Comment} = require('../models');
 
 
 router.get('/', (req, res) => {
-    Blog.findAll().then(blogs => {
+    Blog.findAll({include: [User]}).then(blogs => {
         const hbsBlogs = blogs.map(blog=>blog.get({plain:true}))
         const loggedIn = req.session.user?true:false;
         res.render('home', {blogs:hbsBlogs, loggedIn, username:req.session.user?.username})
@@ -33,6 +33,24 @@ router.get("/dashboard",(req,res)=>{
         hbsData.loggedIn = req.session.user?true:false
         res.render("dashboard", hbsData)
     })
+})
+
+// SINGLE POST PAGE FUNCTION
+router.get("/blogs/:id", (req, res) =>{
+    if(!req.session.user) {
+        return res.redirect('/login')
+    }
+    Blog.findByPk(req.params.id,{include:[User, Comment]})
+    .then(dbBlog => {
+        const hbsBlog = dbBlog.get({plain:true})
+        hbsBlog.loggedIn = req.session.user?true:false
+        console.log(hbsBlog)
+        res.render("dashboard", hbsBlog)
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json({ msg: "an error occured", err });
+      });
 })
 
 module.exports = router;

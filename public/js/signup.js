@@ -14,6 +14,7 @@ document.querySelector("#signup").addEventListener("submit",e=>{
     }).then(res=>{
         if(res.ok){
             console.log("user is signed up")
+            location.href="/dashboard"
         } else {
             alert("please try again")
         }
