@@ -10,7 +10,7 @@ router.use("/api/blogs",blogRoutes)
 const commentRoutes = require("./api/commentRoutes");
 router.use("/api/comments",commentRoutes)
 
-const frontEnd = require("./frontEndRoutes");
+const frontEnd = require("./frontendRoutes");
 router.use("/",frontEnd)
 
 router.get("/showsessions",(req,res)=>{

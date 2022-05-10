@@ -59,8 +59,8 @@ router.get("/blogs/:id", (req, res) =>{
       });
 })
 
-// router.get("*",(req,res)=>{
-//     res.redirect("/")
-// })
+router.get("*",(req,res)=>{
+    res.redirect("/")
+})
 
 module.exports = router;

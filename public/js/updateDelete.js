@@ -16,7 +16,7 @@ document.querySelector("#update").addEventListener("click",event=>{
     }).then(res=>{
         if(res.ok){
             console.log("blog updated")
-            location.reload()
+            location.href="/dashboard"
         } else {
             alert("please try again")
         }
