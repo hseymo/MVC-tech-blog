@@ -43,15 +43,15 @@ router.get("/blogs/:id", (req, res) =>{
     Blog.findByPk(req.params.id,{include:[User, {model: Comment, include: [User]}]})
     .then(dbBlog => {
         const hbsBlog = dbBlog.get({plain:true})
-        hbsBlog.loggedIn = req.session.user?true:false
+        const loggedIn = req.session.user?true:false;
         console.log('==============')
         console.log(hbsBlog)
         if (dbBlog.userId != req.session.user.id) {
 // If not your post -> render comment page over homepage
-            return res.render('comment', {hbsBlog})
+            return res.render('comment', {hbsBlog, loggedIn, username:req.session.user?.username})
         }
         // If your post -> render update/delete page over your dashboard
-        res.render("updateDelete", {hbsBlog})
+        res.render("updateDelete", {hbsBlog, loggedIn, username:req.session.user?.username})
       })
       .catch(err => {
         console.log(err);
