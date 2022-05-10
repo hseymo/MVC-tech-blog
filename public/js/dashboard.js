@@ -1,4 +1,3 @@
-console.log('dashboard')
 var existingBlogs = document.querySelector("#existingblogs")
 var createNew = document.querySelector("#createNew")
 var newPost = document.querySelector("#newpost")

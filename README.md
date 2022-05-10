@@ -1,4 +1,4 @@
-# **MVC Tech Blog**
+# **[MVC Tech Blog](https://glacial-caverns-70702.herokuapp.com/)**
 
 ![Badge](https://img.shields.io/badge/license-MIT-blue)
 
@@ -80,8 +80,9 @@ NPM Packages
 
 ## Description
 ---
+This project is a blog site for developers! The motivation for this project was to create a blog where tech fans can share their thoughts, opinions, articles and blog posts. Upon coming to the site, the homepage presents with existing blog posts and a navbar to help direct you around the site. If you try to navigate away from the homepage, you will be until to until you login and thus will be redirected to the login page. You will notice there is also an option to signup from the login page. If you signup for an account, you will be automatically logged in. Regardless of if you signup or log in, you will be redirected to your dashboard, which is your landing platform for your own posts. If you click on a post in your dashboard, you have the option to update or delete the post. If you click on a post that isn't yours from the homepage, you will be able to view comments and leave one too! Utilzing mySql, Sequelize, and sessions, your login info is stored for 30 minutes while you roam around the site. 
  <br><br>
-To view this project deployed, click [here](URL). <br><br>
+To view this project deployed, click [here](https://glacial-caverns-70702.herokuapp.com/). <br><br>
 
 ## Usage 
 ---
@@ -95,19 +96,22 @@ After following the instructions in installation:
 DB_NAME='' <br>
 DB_USER='' <br>
 DB_PW='' <br>
+DB_SESSION_SECRET=''<br>
 7. Open the "server.js" file in your integrated terminal. 
 8. Run command "npm run seed" (or "node seeds/index.js") to seed the database if desired.
 9. Run command "npm run start" (or "node server.js"). Alternatively, if you have Nodemon installed, run "npm run watch" (or "nodemon server.js"). 
-10. Open insomnia and type in "localhost:3001/api/_" in the address bar. Replace underscore with 'products', 'categories', or 'tags'.
-11. Enter get, post, delete or put requests as you please. 
+10. Open 'localhost:3001' in your browser and see the site in action.
+11. Enter login/logout/signup requests as you please, create a new blog post or update/delete an existing one, or add comments to blog posts. 
 12. When finished, run CONTROL-C in terminal to end stop nodemon, and trash the session. 
 <br>
 
 ### **Screenshots**
 --- 
-![screenshot](ADD URL HERE)
+Login and create a post <br>
+![login/post](./assets/gifs/loginpost.gif)
 <br>
-
+Update/Delete your post, or comment on someone else's <br>
+![Update/delete/comment](./assets/gifs/updatedeletecomment.gif)
 <br>
 
 ## Contributing 
