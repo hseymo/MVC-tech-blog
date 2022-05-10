@@ -30,12 +30,11 @@ router.post("/", (req, res) => {
   }
     Comment.create({
       body:req.body.body,
-      user_id:req.session.user.id,
-    //   TODO: add date here
-    //   date: req.body.created_at,
+      userId:req.session.user.id,
+      blogId:req.body.blogId
     })
-      .then(newBlog => {
-        res.json(newBlog);
+      .then(newComment => {
+        res.json(newComment);
       })
       .catch(err => {
         console.log(err);

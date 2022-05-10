@@ -51,12 +51,11 @@ router.post("/", (req, res) => {
 });
 
 // update post - withAuth fx 
-router.put("/:id", withAuth, async (req, res) => {
+router.put("/:id", (req, res) => {
   if(!req.session.user){
     return res.status(401).json({msg:"Please login!"})
   }
-  // TODO: Ensure user updating is original author
-  await  Blog.update(req.body, {
+  Blog.update(req.body, {
       where: {
         id: req.params.id
       }
@@ -73,7 +72,6 @@ router.delete("/:id", (req, res) => {
   if(!req.session.user){
     return res.status(401).json({msg:"Please login!"})
   }
-  // TODO: Ensure user updating is original author
     Blog.destroy({
       where: {
         id: req.params.id

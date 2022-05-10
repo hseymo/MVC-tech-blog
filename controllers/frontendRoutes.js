@@ -40,15 +40,17 @@ router.get("/blogs/:id", (req, res) =>{
     if(!req.session.user) {
         return res.redirect('/login')
     }
-    Blog.findByPk(req.params.id,{include:[User, Comment]})
+    Blog.findByPk(req.params.id,{include:[User, {model: Comment, include: [User]}]})
     .then(dbBlog => {
         const hbsBlog = dbBlog.get({plain:true})
         hbsBlog.loggedIn = req.session.user?true:false
+        console.log('==============')
         console.log(hbsBlog)
         if (dbBlog.userId != req.session.user.id) {
-            // res.render comment page
+// If not your post -> render comment page over homepage
             return res.render('comment', {hbsBlog})
         }
+        // If your post -> render update/delete page over your dashboard
         res.render("updateDelete", {hbsBlog})
       })
       .catch(err => {

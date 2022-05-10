@@ -47,12 +47,23 @@ button {
     margin-top: 20px;
 }
 
-#content {
+#content, #editedContent {
     margin-left: 10vw;
     margin-right: 10vw;
 }
 
-#create {
+#create, #update, #delete {
     margin-left: 30vw;
     margin-right: 30vw;
+    margin-top: 20px;
 }
+
+#comment {
+width: 80vw;
+margin-top:20px;
+}
+
+#title, #editedTitle {
+    width: 80vw;
+}
+

@@ -40,9 +40,9 @@ newBlog.addEventListener("submit", event => {
     }).then(res=>{
         if(res.ok){
             createNew.setAttribute("hidden", "false")
-           location.reload()
+            location.reload()
         } else {
-            alert("trumpet sound")
+            alert("Error - please try again")
         }
     })
 })
