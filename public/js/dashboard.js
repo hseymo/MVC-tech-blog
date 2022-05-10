@@ -5,7 +5,7 @@ var newPost = document.querySelector("#newpost")
 var newBlog = document.querySelector('#newBlog')
 
 function hideCreateNew() {
-    createNew.setAttribute("hidden", "true")
+    createNew.hidden=true;
 }
 
 hideCreateNew();
@@ -19,11 +19,17 @@ newPost.addEventListener("submit",event=>{
 });
 
 newBlog.addEventListener("submit", event => {
+    var title = document.querySelector("#title").value;
+    var content = document.querySelector("#content").value
     event.preventDefault()
     console.log('you clicked me')
+    if (!title || !content) {
+        alert('Please enter both title and content')
+        return;
+    }
     const blogObj = {
-        title:document.querySelector("#title").value,
-        content:document.querySelector("#content").value,
+        title: title,
+        content: content,
     }
     fetch("/api/blogs",{
         method:"POST",
@@ -33,6 +39,7 @@ newBlog.addEventListener("submit", event => {
         }
     }).then(res=>{
         if(res.ok){
+            createNew.setAttribute("hidden", "false")
            location.reload()
         } else {
             alert("trumpet sound")

@@ -1,16 +1,14 @@
 <h1>Dashboard</h1>
-<section id="existingblogs">
-{{#each blogs}}
+<section id="currentBlog">
   <section class="card">
-      <a href="/blogs/{{id}}" class="card-body">
+      <div class="card-body">
         <h3 class="card-title">{{title}}</h3> 
         <h5>Posted on {{createdAt}}</h5>
         <p class="card-text">{{content}}</p>
-    </a>
+    </div>
   </section>
-{{/each}}
 </section>
-<section id="createNew" class="card text-center">
+{{!-- <section id="createNew" class="card text-center">
   <div class="card-body">
   <h3 class="card-title">Create New Post</h3>
   <form id="newBlog">
@@ -28,5 +26,5 @@
 </section>
 <form id="newpost">
     <button>+ New Post</button>
-</form>
-<script src="/js/dashboard.js"></script>
+</form> --}}
+<script src="/js/updateDelete.js"></script>

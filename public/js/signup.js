@@ -1,8 +1,8 @@
-document.querySelector("#signup").addEventListener("submit",e=>{
-    e.preventDefault();
+document.querySelector("#signup").addEventListener("submit",event=>{
+    event.preventDefault();
     const userObj = {
         username:document.querySelector("#signupUsername").value,
-        password:document.querySelector("#signupUsername").value,
+        password:document.querySelector("#signupPassword").value,
     }
     console.log(userObj)
     fetch("/api/users/",{

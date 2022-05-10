@@ -31,7 +31,7 @@ header a {
     background-color: azure;
 }
 
-.card h4, .card p {
+.card h5, .card p {
     color: black;
     font-style: normal;
 }
@@ -45,4 +45,14 @@ button {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+}
+
+#content {
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+#create {
+    margin-left: 30vw;
+    margin-right: 30vw;
 }

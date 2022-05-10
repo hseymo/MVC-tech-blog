@@ -1,5 +1,5 @@
-document.querySelector("#login").addEventListener("submit",e=>{
-    e.preventDefault();
+document.querySelector("#login").addEventListener("submit",event=>{
+    event.preventDefault();
     const userObj = {
         username:document.querySelector("#loginUsername").value,
         password:document.querySelector("#loginPassword").value,

@@ -1,9 +1,9 @@
 <h1>The Tech Blog</h1>
 {{#each blogs}}
   <section class="card">
-      <a href="/blogs/{{id}}" class="card-body">
+    <a href="/blogs/{{id}}" class="card-body">
         <h3 class="card-title">{{title}}</h3> 
-        <h4>Posted by {{user.username}} on {{createdAt}}</h4>
+        <h5>Posted by {{user.username}} on {{createdAt}}</h5>
         <p class="card-text">{{content}}</p>
     </a>
   </section>
